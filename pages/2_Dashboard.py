@@ -9,146 +9,354 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# -----------------------------
-# Theme / styles
-# -----------------------------
-st.markdown(
-    """
-    <style>
-        .stApp {
-            background:
-                radial-gradient(circle at top left, rgba(29,53,87,0.08), transparent 28%),
-                radial-gradient(circle at top right, rgba(214,40,40,0.06), transparent 22%),
-                #F4F7FA;
-        }
 
-        .hero {
-            background: linear-gradient(135deg, #081A2F 0%, #12304F 50%, #1D3557 100%);
-            color: white;
-            padding: 1.5rem 1.6rem;
-            border-radius: 22px;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 14px 36px rgba(11,31,58,0.18);
-            margin-bottom: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
+# =========================================================
+# RESCUENET AI - DASHBOARD THEME
+# =========================================================
 
-        .hero:after {
-            content: "";
-            position: absolute;
-            right: -60px;
-            top: -60px;
-            width: 180px;
-            height: 180px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
-        }
+st.markdown("""
+<style>
 
-        .hero h1, .hero h2, .hero h3, .hero p {
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
+    /* =========================================
+       GLOBAL BACKGROUND
+       ========================================= */
 
-        .status-pill {
-            display: inline-block;
-            padding: 0.3rem 0.7rem;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-        }
+    .stApp {
+        background:
+            radial-gradient(
+                circle at 85% 5%,
+                rgba(37, 99, 235, 0.12),
+                transparent 25%
+            ),
+            radial-gradient(
+                circle at 10% 90%,
+                rgba(245, 158, 11, 0.07),
+                transparent 25%
+            ),
+            #0B1220 !important;
 
-        .glass-card {
-            background: rgba(255,255,255,0.9);
-            border: 1px solid rgba(227,234,241,0.95);
-            border-radius: 18px;
-            padding: 1rem 1.1rem;
-            box-shadow: 0 2px 10px rgba(11,31,58,0.04);
-            backdrop-filter: blur(6px);
-        }
+        color: #F8FAFC !important;
+    }
 
-        .metric-card {
-            background: linear-gradient(180deg, #FFFFFF 0%, #FAFCFE 100%);
-            border: 1px solid #E3EAF1;
-            border-radius: 18px;
-            padding: 1rem;
-            min-height: 118px;
-            box-shadow: 0 2px 10px rgba(11,31,58,0.04);
-        }
 
-        .metric-title {
-            color: #5E6C7B;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 0.25rem;
-        }
+    /* =========================================
+       MAIN CONTENT
+       ========================================= */
 
-        .metric-value {
-            color: #0B1F3A;
-            font-size: 1.75rem;
-            font-weight: 850;
-            line-height: 1.1;
-        }
+    .main {
+        background-color: #0B1220 !important;
+    }
 
-        .metric-note {
-            color: #5E6C7B;
-            font-size: 0.92rem;
-            margin-top: 0.35rem;
-        }
+    .block-container {
+        padding-top: 2rem !important;
+        padding-bottom: 3rem !important;
+    }
 
-        .module-card {
-            background: white;
-            border: 1px solid #E3EAF1;
-            border-radius: 18px;
-            padding: 1rem 1.05rem;
-            box-shadow: 0 2px 10px rgba(11,31,58,0.04);
-        }
 
-        .section-title {
-            color: #0B1F3A;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin: 0.15rem 0 0.6rem 0;
-        }
+    /* =========================================
+       ALL HEADINGS
+       ========================================= */
 
-        .muted {
-            color: #5E6C7B;
-        }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #F8FAFC !important;
+    }
 
-        .divider-line {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #D9E2EC, transparent);
-            margin: 1rem 0;
-        }
 
-        .footer {
-            color: #5E6C7B;
-            text-align: center;
-            padding: 1rem 0 0.5rem 0;
-            font-size: 0.9rem;
-        }
+    /* =========================================
+       NORMAL TEXT
+       ========================================= */
 
-        .badge {
-            display: inline-block;
-            padding: 0.22rem 0.65rem;
-            border-radius: 999px;
-            background: #E7F6EF;
-            color: #2A9D8F;
-            font-size: 0.8rem;
-            font-weight: 800;
-            border: 1px solid #CBEEDD;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+    p,
+    span,
+    li,
+    label,
+    small {
+        color: #E5E7EB !important;
+    }
 
+
+    /* Markdown text */
+    [data-testid="stMarkdownContainer"] {
+        color: #E5E7EB !important;
+    }
+
+    [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMarkdownContainer"] span,
+    [data-testid="stMarkdownContainer"] li {
+        color: #E5E7EB !important;
+    }
+
+
+    /* =========================================
+       CAPTIONS / SECONDARY TEXT
+       ========================================= */
+
+    [data-testid="stCaptionContainer"] {
+        color: #94A3B8 !important;
+    }
+
+
+    /* =========================================
+       METRICS
+       ========================================= */
+
+    [data-testid="stMetric"] {
+        background: #172235 !important;
+        border: 1px solid #26364D !important;
+        border-radius: 14px !important;
+        padding: 1rem !important;
+    }
+
+    [data-testid="stMetricLabel"] {
+        color: #94A3B8 !important;
+    }
+
+    [data-testid="stMetricValue"] {
+        color: #F8FAFC !important;
+        font-weight: 800 !important;
+    }
+
+    [data-testid="stMetricDelta"] {
+        color: #CBD5E1 !important;
+    }
+
+
+    /* =========================================
+       CARDS
+       ========================================= */
+
+    .rn-card {
+        background: #172235 !important;
+        border: 1px solid #2A3A52 !important;
+        border-radius: 16px !important;
+        padding: 1.2rem !important;
+        color: #F8FAFC !important;
+    }
+
+
+    /* =========================================
+       DATAFRAME / TABLE
+       ========================================= */
+
+    [data-testid="stDataFrame"] {
+        border: 1px solid #2A3A52 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+    }
+
+    [data-testid="stDataFrame"] * {
+        color: #E5E7EB !important;
+    }
+
+
+    /* =========================================
+       SELECTBOX
+       ========================================= */
+
+    .stSelectbox label {
+        color: #E5E7EB !important;
+    }
+
+    .stSelectbox div[data-baseweb="select"] > div {
+        background-color: #172235 !important;
+        border-color: #334155 !important;
+        color: #F8FAFC !important;
+    }
+
+    .stSelectbox div[data-baseweb="select"] span {
+        color: #F8FAFC !important;
+    }
+
+
+    /* =========================================
+       NUMBER INPUT
+       ========================================= */
+
+    .stNumberInput label {
+        color: #E5E7EB !important;
+    }
+
+    .stNumberInput input {
+        background-color: #172235 !important;
+        color: #F8FAFC !important;
+        border-color: #334155 !important;
+    }
+
+
+    /* =========================================
+       SLIDERS
+       ========================================= */
+
+    .stSlider label {
+        color: #E5E7EB !important;
+    }
+
+    .stSlider [data-testid="stTickBarMin"],
+    .stSlider [data-testid="stTickBarMax"] {
+        color: #94A3B8 !important;
+    }
+
+
+    /* =========================================
+       BUTTONS
+       ========================================= */
+
+    .stButton button {
+        background-color: #172235 !important;
+        color: #F8FAFC !important;
+        border: 1px solid #334155 !important;
+        border-radius: 10px !important;
+    }
+
+    .stButton button:hover {
+        border-color: #F59E0B !important;
+        color: #FFFFFF !important;
+    }
+
+
+    /* =========================================
+       TABS
+       ========================================= */
+
+    .stTabs [data-baseweb="tab-list"] {
+        background-color: #111A2B !important;
+        border-radius: 10px !important;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        color: #94A3B8 !important;
+    }
+
+    .stTabs [aria-selected="true"] {
+        color: #F8FAFC !important;
+    }
+
+
+    /* =========================================
+       EXPANDERS
+       ========================================= */
+
+    [data-testid="stExpander"] {
+        background-color: #172235 !important;
+        border: 1px solid #2A3A52 !important;
+        border-radius: 12px !important;
+    }
+
+    [data-testid="stExpander"] summary {
+        color: #F8FAFC !important;
+    }
+
+    [data-testid="stExpander"] p,
+    [data-testid="stExpander"] span {
+        color: #E5E7EB !important;
+    }
+
+
+    /* =========================================
+       ALERT / INFO BOXES
+       ========================================= */
+
+    [data-testid="stAlert"] {
+        color: #E5E7EB !important;
+    }
+
+    [data-testid="stAlert"] p,
+    [data-testid="stAlert"] span {
+        color: #E5E7EB !important;
+    }
+
+
+    /* =========================================
+       SIDEBAR
+       ========================================= */
+
+    [data-testid="stSidebar"] {
+        background:
+            linear-gradient(
+                180deg,
+                #111827 0%,
+                #0F172A 100%
+            ) !important;
+    }
+
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] a {
+        color: #E5E7EB !important;
+    }
+
+    [data-testid="stSidebar"] [aria-current="page"] {
+        color: #FFFFFF !important;
+        background-color: #26354D !important;
+    }
+
+
+    /* =========================================
+       HORIZONTAL RULES
+       ========================================= */
+
+    hr {
+        border-color: #334155 !important;
+    }
+
+
+    /* =========================================
+       LINKS
+       ========================================= */
+
+    a {
+        color: #60A5FA !important;
+    }
+
+    a:hover {
+        color: #F59E0B !important;
+    }
+
+
+    /* =========================================
+       PLOTLY / CHART CONTAINER
+       ========================================= */
+
+    [data-testid="stPlotlyChart"] {
+        background-color: #172235 !important;
+        border: 1px solid #2A3A52 !important;
+        border-radius: 14px !important;
+        padding: 0.5rem !important;
+    }
+
+
+    /* =========================================
+       CHECKBOX / RADIO
+       ========================================= */
+
+    .stCheckbox label,
+    .stRadio label {
+        color: #E5E7EB !important;
+    }
+
+
+    /* =========================================
+       FILE UPLOADER
+       ========================================= */
+
+    [data-testid="stFileUploader"] {
+        background-color: #172235 !important;
+        border: 1px dashed #334155 !important;
+        border-radius: 12px !important;
+    }
+
+    [data-testid="stFileUploader"] * {
+        color: #E5E7EB !important;
+    }
+
+</style>
+""", unsafe_allow_html=True)
 # -----------------------------
 # Session state
 # -----------------------------

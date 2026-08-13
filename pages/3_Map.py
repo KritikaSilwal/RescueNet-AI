@@ -5,30 +5,106 @@ import streamlit as st
 
 st.set_page_config(page_title="Disaster Map", page_icon="🌍", layout="wide")
 
-st.markdown(
-    """
-    <style>
-        .stApp { background: #F4F7FA; }
-        .hero {
-            background: linear-gradient(135deg, #0B1F3A 0%, #1D3557 100%);
-            color: white;
-            padding: 1.2rem 1.4rem;
-            border-radius: 18px;
-            margin-bottom: 1rem;
-        }
-        .card {
-            background: white;
-            border: 1px solid #E3EAF1;
-            border-radius: 16px;
-            padding: 1rem 1.1rem;
-            box-shadow: 0 2px 10px rgba(11,31,58,0.04);
-        }
-        .muted { color: #5E6C7B; }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
+st.markdown("""
+<style>
+
+    /* ==============================
+       RESCUENET MAP - TEXT VISIBILITY
+       ============================== */
+
+    /* Main application background */
+    .stApp {
+        background-color: #0B1220 !important;
+        color: #F8FAFC !important;
+    }
+
+    /* Main headings */
+    h1, h2, h3, h4, h5, h6 {
+        color: #F8FAFC !important;
+    }
+
+    /* Normal text */
+    p, span, li, label {
+        color: #E5E7EB !important;
+    }
+
+    /* Markdown text */
+    [data-testid="stMarkdownContainer"] {
+        color: #E5E7EB !important;
+    }
+
+    [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMarkdownContainer"] span,
+    [data-testid="stMarkdownContainer"] li {
+        color: #E5E7EB !important;
+    }
+
+    /* Captions / small secondary text */
+    [data-testid="stCaptionContainer"] {
+        color: #94A3B8 !important;
+    }
+
+    /* Selectbox labels */
+    .stSelectbox label {
+        color: #E5E7EB !important;
+    }
+
+    /* Slider labels */
+    .stSlider label {
+        color: #E5E7EB !important;
+    }
+
+    /* Number input labels */
+    .stNumberInput label {
+        color: #E5E7EB !important;
+    }
+
+    /* Metric labels */
+    [data-testid="stMetricLabel"] {
+        color: #94A3B8 !important;
+    }
+
+    /* Metric values */
+    [data-testid="stMetricValue"] {
+        color: #F8FAFC !important;
+    }
+
+    /* Expander text */
+    [data-testid="stExpander"] summary {
+        color: #F8FAFC !important;
+    }
+
+    /* Expander content */
+    [data-testid="stExpander"] p,
+    [data-testid="stExpander"] span {
+        color: #E5E7EB !important;
+    }
+
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #111827 !important;
+    }
+
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] a {
+        color: #E5E7EB !important;
+    }
+
+    /* Sidebar selected item */
+    [data-testid="stSidebar"] [aria-current="page"] {
+        color: #FFFFFF !important;
+    }
+
+    /* Buttons */
+    .stButton button {
+        color: #F8FAFC !important;
+    }
+
+</style>
+""", unsafe_allow_html=True)
 st.markdown(
     """
     <div class="hero">
